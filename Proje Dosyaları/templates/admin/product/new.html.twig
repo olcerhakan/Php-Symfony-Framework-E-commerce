@@ -1,0 +1,65 @@
+
+{#{% extends 'base.html.twig' %}
+
+{% block title %}Edit Product{% endblock %}
+
+{% block body %}
+    <h1>Edit Product</h1>
+
+    {{ include('admin/product/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('admin_product_index') }}">back to list</a>
+
+    {{ include('admin/product/_delete_form.html.twig') }}
+{% endblock %}
+
+#}
+
+{% extends 'adminbase.html.twig' %}
+{% block title %}Ürün Düzenle{% endblock %}
+
+
+{% block content %}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>Ürün Düzenle</h2>
+        </div>
+
+
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                {{ include('admin/messages.html.twig') }}
+                <div class="card"> {#
+                        <div class="header">
+
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Home</a></li>
+                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Kategori Düzenle</a></li>
+                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div> #}
+
+                    <div class="body table-responsive">
+
+    {{ include('admin/product/_form.html.twig') }}
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+{% endblock %}
+

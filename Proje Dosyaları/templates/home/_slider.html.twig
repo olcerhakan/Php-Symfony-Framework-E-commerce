@@ -1,0 +1,62 @@
+<section id="slider"><!--slider-->
+    <div class="container" >
+        <div class="row" >
+            <div class="col-sm-9">
+                <div id="slider-carousel" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#slider-carousel" data-slide-to="1"></li>
+                        <li data-target="#slider-carousel" data-slide-to="2"></li>
+                        <li data-target="#slider-carousel" data-slide-to="3"></li>
+                        <li data-target="#slider-carousel" data-slide-to="4"></li>
+                        <li data-target="#slider-carousel" data-slide-to="5"></li>
+                    </ol>
+
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="col-sm-6">
+                                <h1><span>E</span>-SHOPPER</h1>
+                                <h2>ÖĞRENCİLER İÇİN DERS NOTU</h2>
+                                <p>  SİZ DEĞERLİ ÖĞRENCİLERİMİZ İÇİN </p>
+
+                            </div>
+                            <div class="col-sm-6">
+                                <img src="images/home/girl1.jpg" class="girl img-responsive" alt="" />
+                                <img src="images/home/pricing.png"  class="pricing" alt="" />
+                            </div>
+                        </div>
+
+
+                        {% for rs in sliders %}
+                        <div class="item">
+                            <div class="col-sm-6">
+                                <h1><span>DERS</span>-NOTLARI</h1>
+                                <h2>{{ rs.title }}</h2>
+                                <p>{{ rs.description }} </p>
+                                <a href="{{ path('product_detail', {'id': rs.id}) }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>HAKAN ÖLÇER</a>
+                                <!--<button type="button" class="btn btn-default get">Get it now</button> -->
+                            </div>
+                            <div class="col-sm-6">
+                                <img src="{{ asset('uploads') }}/images/{{ rs.image }}" class="girl img-responsive" alt="" />
+                               <!-- <img src="images/home/pricing.png"  class="pricing" alt="" />  -->
+                            </div>
+                        </div>
+                        {% endfor %}
+
+
+
+                    </div>
+
+                    <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</section><!--/slider-->

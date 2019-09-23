@@ -1,0 +1,67 @@
+
+
+<form  method="post">
+
+    <label >Üst Kategori</label>
+    <div class="form-group">
+        <div class="form-line">
+            <select name="category[parentid]" class="dd-handle">
+
+                {% if category.parentid!=0 %}
+                <option value="{{ category.parentid }}">{{ catname.title }}</option>
+                {% else %}
+                <option value="0">Ana Kategori</option>
+                {% endif %}
+
+                <option value="0">Ana Kategori</option>
+                {% for cat in catlist %}
+
+
+                    <option value="{{ cat.id }}">{{ cat.title }}</option>
+                {% endfor %}
+            </select>
+
+        </div>
+    </div>
+
+    <label >Title (Başlık)</label>
+    <div class="form-group">
+        <div class="form-line">
+            <input type="text" name="category[title]" value="{{ category.title }}"  class="form-control" placeholder="Title">
+        </div>
+    </div>
+
+    <label  >Keywords (Anahtar Kelimeler)</label>
+    <div class="form-group">
+        <div class="form-line">
+            <input type="text" name="category[keywords]" value="{{ category.keywords }}" class="form-control" placeholder="Keywords">
+        </div>
+    </div>
+
+    <label  >Description (Kısa Açıklama)</label>
+    <div class="form-group">
+        <div class="form-line">
+            <input type="text" name="category[description]" value="{{ category.description }}" class="form-control" placeholder="Description">
+        </div>
+    </div>
+
+
+
+
+    <label  >Aktif Durumu</label>
+    <div class="form-group">
+        <div class="form-line">
+            <select name="category[status]" class="dd-handle">
+                <option>{{ category.status }}</option>
+                <option>True</option>
+                <option selected>False</option>
+
+            </select>
+        </div>
+    </div>
+
+    <br>
+    <button type="submit" class="btn btn-primary m-t-15 waves-effect">Cancel</button>
+
+    <button type="submit" class="btn bg-orange waves-effect"><i class="material-icons">save</i><span>KAYDET</span></button>
+</form>

@@ -1,0 +1,72 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %} Profil Bilgileri {% endblock %}
+
+{% block sidebar %} {{  include ('home/_usersidebar.html.twig')  }} {% endblock %}
+
+{% block body %}
+    <ul class="breadcrumb">
+        <li><a href="{{ path('home') }}">Home</a><span class="divider">/</span> </li>
+        <li><a href="">Üye Detay</a><span class="divider">/</span> </li>
+        <li class="active">Preview</li>
+    </ul>
+    <div class="col-sm-12 padding-right">
+    <div class="product-details"><!--product-details-->
+        <div class="col-sm-5">
+
+            <div id="similar-product" class="carousel slide" data-ride="carousel">
+                <h3>Üye Profil Bilgileri</h3>
+                {{  include ('messages.html.twig')  }}
+
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ app.user.id }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Email</th>
+                        <td>{{ app.user.mail }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Roles</th>
+                        <td>{{ app.user.tipi|join }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Name</th>
+                        <td>{{ app.user.isim }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Adres</th>
+                        <td>{{ app.user.address }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Şehir</th>
+                        <td>{{ app.user.city }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Telefon</th>
+                        <td>{{ app.user.phone }}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Status</th>
+                        <td>{{ app.user.durumu }}</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

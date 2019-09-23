@@ -1,0 +1,116 @@
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Üye Düzenleme{% endblock %}
+
+{% block content %}
+    <section class="content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <h2>Üye Düzenleme</h2>
+            </div>
+
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Üye Düzenleme
+
+                            </h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Home</a></li>
+                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Üye Düzenleme</a></li>
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Düzenleme Formu
+                            </h2>
+
+                        </div>
+                        <div class="body">
+                            <form  method="post">
+
+
+                                <div class="form-group">
+                                    <label for="email_address">Adı Soyadı</label>
+                                    <div class="form-line">
+                                        <input type="text" name="user[isim]" value="{{ user.isim }}" id="email_address" class="form-control" placeholder="Adı Soyadı">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="email_address">E Mail</label>
+                                    <div class="form-line">
+                                        <input type="email" name="user[mail]" value="{{ user.mail }}" id="email_address" class="form-control" placeholder="E Mail Adresi">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <div class="form-line">
+                                        <input type="password" name="user[password]" value="{{ user.password }}" id="password" class="form-control" placeholder="Enter your password">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="password">Türü</label>
+                                    <div class="form-line">
+                                        <select name="user[tipi]" class="dd-handle">
+                                            {% for item in user.tipi  %}
+                                                <option selected>{{ item }}</option>
+                                            {% endfor %}
+
+                                            <option>ROLE_ADMIN</option>
+                                            <option>ROLE_USER</option>
+                                            <option>ROLE_POWER</option>
+                                            <option>ROLE_MEMBER</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <label for="password">Aktif Durumu</label>
+                                    <div class="form-line">
+                                        <select name="user[durumu]" class="dd-handle">
+                                            <option>{{ user.durumu }}</option>
+                                            <option>True</option>
+                                            <option>False</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <br>
+                                <button type="submit" class="btn btn-primary m-t-15 waves-effect">Cancel</button>
+                                <button type="submit" class="btn bg-orange waves-effect"><i class="material-icons">save</i><span>KAYDET</span></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+{% endblock %}

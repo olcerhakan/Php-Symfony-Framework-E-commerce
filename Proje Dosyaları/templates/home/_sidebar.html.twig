@@ -1,0 +1,132 @@
+<style>
+    ul#menu-v, #menu-v ul
+    {
+        width:200px; /* Main Menu width */
+        border:1px solid #CCCCCC;
+        list-style:none; margin:0; padding:0;
+        z-index:9;
+    }
+
+    #menu-v li
+    {
+        margin:0;padding:0;
+        position:relative;
+        background-color:#EEEEEE; /*fallback color*/
+        background-color:rgba(255,255,255,0.8);
+        transition:background 0.5s;
+    }
+    #menu-v li:hover
+    {
+        background-color:rgba(255,255,255,0.5);
+    }
+
+    #menu-v a
+    {
+        font:normal 12px Arial;
+        border-top:1px solid #CCCCCC;
+        display:block;
+        color:#444444;
+        text-decoration:none;
+        line-height:30px;
+        padding-left:22px;
+        position:relative;
+    }
+
+    #menu-v li:first-child a
+    {
+        border-top:0;
+    }
+    #menu-v a:hover {
+        background-color: #2c618f;
+        color:orange;
+    }
+
+    #menu-v a.arrow::after{
+        content:'';
+        position:absolute;
+        display:inline;
+        top:50%;
+        margin-top:-4px;
+        right:8px;
+        border-width:4px;
+        border-style:solid;
+        border-color:transparent transparent transparent white;
+        transition:border-color 0.5s;
+    }
+
+    #menu-v li a.arrow:hover::after
+    {
+        background-color: #666;
+        border-color:transparent transparent transparent #CCCCCC;
+    }
+
+    /*Sub level menu items
+    ---------------------------------------*/
+    #menu-v li ul
+    {
+        min-width:180px; /* Sub level menu min width */
+        position:absolute;
+        display:none;
+        left:100%;
+        top:50%; transform:translateY(-50%);
+    }
+
+    #menu-v li:hover > ul
+    {
+        display:block;
+    }
+
+
+</style>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="left-sidebar">
+
+                    <h2>Category</h2>
+                    <div class="panel-group category-products" id="accordian"><!--category-productsr-->
+                        {% for cat in cats %}
+                            {{ cat|raw }}
+                        {% endfor %}
+                    </div><!--/category-products-->
+
+                    <br>
+                    <div class="brands_products"><!--brands_products-->
+                        <h2>Brands</h2>
+                        <div class="brands-name">
+                            <ul class="nav nav-pills nav-stacked">
+                                <li><a href="#"> <span class="pull-right">(50)</span>Acne</a></li>
+                                <li><a href="#"> <span class="pull-right">(56)</span>Grüne Erde</a></li>
+                                <li><a href="#"> <span class="pull-right">(27)</span>Albiro</a></li>
+                                <li><a href="#"> <span class="pull-right">(32)</span>Ronhill</a></li>
+                                <li><a href="#"> <span class="pull-right">(5)</span>Oddmolly</a></li>
+                                <li><a href="#"> <span class="pull-right">(9)</span>Boudestijn</a></li>
+                                <li><a href="#"> <span class="pull-right">(4)</span>Rösch creative culture</a></li>
+                            </ul>
+                        </div>
+                    </div><!--/brands_products-->
+
+
+                    <div class="price-range"><!--price-range-->
+                        <h2>Price Range</h2>
+                        <div class="well text-center">
+                            <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
+                            <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
+                        </div>
+                    </div><!--/price-range-->
+
+                    <br>
+                    <br>
+                    <br>
+                    <div class="shipping text-center"><!--shipping-->
+                        <img src="images/home/shipping.jpg" alt="" />
+                    </div><!--/shipping-->
+
+
+
+
+                </div>
+            </div>
+

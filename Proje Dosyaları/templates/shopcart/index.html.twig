@@ -1,0 +1,66 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %} Shopcart {% endblock %}
+
+{% block sidebar %} {{  include ('home/_usersidebar.html.twig')  }} {% endblock %}
+
+{% block body %}
+    <ul class="breadcrumb">
+        <li><a href="{{ path('home') }}">Home</a><span class="divider">/</span> </li>
+        <li><a href=""> Shopcart Items</a><span class="divider">/</span> </li>
+        <li class="active">Preview</li>
+    </ul>
+    <div class="col-sm-12 padding-right">
+        <div class="product-details"><!--product-details-->
+            <div class="col-sm-5">
+
+                <div id="similar-product" class="carousel slide" data-ride="carousel">
+                    <h3>Shopcart Items</h3>
+                    {{  include ('messages.html.twig')  }}
+
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Product Name</th>
+                            <th>Sale Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% set total=0 %}
+                        {% for shopcart in shopcarts %}
+                            <tr>
+                                <td>{{ shopcart.id }}</td>
+                                <td>{{ shopcart.title }}</td>
+                                <td>{{ shopcart.sprice }}</td>
+                                <td>{{ shopcart.quantity }}</td>
+                                <td>{{  shopcart.quantity * shopcart.sprice  }}</td>
+                                <td><a href="{{ path('shopcart_del',{'id':shopcart.id}) }}" onclick="return confirm('Silinecek, Emin misiniz?');" class="btn bg-red waves-effect">
+                                        <span class="label label-danger">Del</span>
+
+                                    </a>
+                                </td>
+                            </tr>
+                            {% set total= total+(shopcart.quantity * shopcart.sprice) %}
+                        {% else %}
+                            <tr>
+                                <td colspan="5">Sepet Boş</td>
+                            </tr>
+                        {% endfor %}
+                            <tr>
+                                <td colspan="5"> <b>Toplam Alış-Veriş Tutarı: {{ total }} ₺</b> <br>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a href="{{ path('orders_new') }}" class="btn bg-green waves-effect">Ürünleri Satın Al</a>
+
+                </div>
+            </div><!--/recommended_items-->
+        </div>
+
+
+{% endblock %}

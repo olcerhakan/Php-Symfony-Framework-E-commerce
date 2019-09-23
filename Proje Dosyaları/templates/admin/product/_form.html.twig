@@ -1,0 +1,92 @@
+<form  method="post">
+
+    <label > Kategorisi</label>
+    <div class="form-group">
+        <div class="form-line">
+            <select name="product[category_id]" class="dd-handle">
+                {# {% if catname() %} #}
+                <option value="{{ product.categoryid }}">{{ product.title }}</option>
+                {# {% endif %} #}
+                {% for cat in catlist %}
+                    <option value="{{ cat.id }}">{{ cat.title }}</option>
+                {% endfor %}
+            </select>
+
+        </div>
+    </div>
+
+    <label >Title (Başlık)</label>
+    <div class="form-group">
+        <div class="form-line">
+            <input type="text" name="product[title]" value="{{ product.title }}"  class="form-control" placeholder="Title">
+        </div>
+    </div>
+
+    <label  >Keywords (Anahtar Kelimeler)</label>
+    <div class="form-group">
+        <div class="form-line">
+            <input type="text" name="product[keywords]" value="{{ product.keywords }}" class="form-control" placeholder="Keywords">
+        </div>
+    </div>
+
+    <label  >Description (Kısa Açıklama)</label>
+    <div class="form-group">
+        <div class="form-line">
+            <input type="text" name="product[description]" value="{{ product.description }}" class="form-control" placeholder="Description">
+        </div>
+    </div>
+
+
+    <label  >Alış Fiyatı</label>
+    <div class="form-group">
+        <div class="form-line">
+            <input type="text" name="product[price]" value="{{ product.price }}" class="form-control" placeholder="Description">
+        </div>
+    </div>
+
+    <label  >Satış Fiyatı</label>
+    <div class="form-group">
+        <div class="form-line">
+            <input type="text" name="product[sprice]" value="{{ product.sprice }}" class="form-control" placeholder="Description">
+        </div>
+    </div>
+
+    <label  >Miktarı </label>
+    <div class="form-group">
+        <div class="form-line">
+            <input type="text" name="product[amount]" value="{{ product.amount }}" class="form-control" placeholder="Description">
+        </div>
+    </div>
+
+    <label  >Aktif Durumu</label>
+    <div class="form-group">
+        <div class="form-line">
+            <select name="product[status]" class="dd-handle">
+                <option>{{ product.status }}</option>
+                <option>True</option>
+                <option selected>False</option>
+
+            </select>
+        </div>
+    </div>
+
+    <label> Detaylar</label>
+    <div class="form-group">
+        <div class="form-line">
+            <textarea id="editor" name="product[detail]" rows="10" cols="100"> {{ product.detail }} </textarea>
+        </div>
+    </div>
+
+    <br>
+    <button type="submit" class="btn btn-primary m-t-15 waves-effect">Cancel</button>
+
+    <button type="submit" class="btn bg-orange waves-effect"><i class="material-icons">save</i><span>KAYDET</span></button>
+</form>
+
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>

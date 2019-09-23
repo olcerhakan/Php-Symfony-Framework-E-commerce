@@ -1,0 +1,28 @@
+{% extends 'frontbase.html.twig' %}
+
+{% block title %} Bilgileri Düzenle {% endblock %}
+
+{% block sidebar %} {{  include ('home/_usersidebar.html.twig')  }} {% endblock %}
+
+{% block body %}
+    <ul class="breadcrumb">
+        <li><a href="{{ path('home') }}">Home</a><span class="divider">/</span> </li>
+        <li><a href="">Üye Detay</a><span class="divider">/</span> </li>
+        <li class="active">Preview</li>
+    </ul>
+    <div class="col-sm-12 padding-right">
+    <div class="product-details"><!--product-details-->
+        <div class="col-sm-5">
+
+            <div id="similar-product" class="carousel slide" data-ride="carousel">
+                <h3>Edit User</h3>
+                {{  include ('userpanel/_form.html.twig', {'button_label':'Update'})  }}
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
